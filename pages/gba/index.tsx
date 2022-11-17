@@ -7,7 +7,7 @@ import GridItem from "../../components/Grid/GridItem.js";
 import Header from "../../components/Header/Header.js";
 import Parallax from "../../components/Parallax/Parallax.js";
 import styles from "../../styles/jss/nextjs-material-kit/pages/gbaLanding.module.scss";
-import Button from "../../components/CustomButtons/Button.js";
+// import Button from "../../components/CustomButtons/Button.js";
 
 interface Props {
   games: ReadonlyArray<string>;
@@ -26,7 +26,6 @@ const GBA: React.FC<Props> = ({ games }) => {
           height: 400,
           color: "white",
         }}
-        //   {...rest}
       />
       <Parallax filter responsive image="/img/landing-bg.jpg">
         <div className={styles.container}>
@@ -44,9 +43,19 @@ const GBA: React.FC<Props> = ({ games }) => {
           </GridContainer>
         </div>
       </Parallax>
-      {games.map((game) => (
-        <Link href={`/gba/${game}`}>{game}</Link>
-      ))}
+      <div className={styles.gamesContainer}>
+        {games.map((game) => (
+          <GridItem>
+            <Link href={`/gba/${game}`}>
+              <img
+                alt={game}
+                src="/img/examples/studio-1.jpg"
+                className={styles.gameImage}
+              />
+            </Link>
+          </GridItem>
+        ))}
+      </div>
     </div>
   );
 };
