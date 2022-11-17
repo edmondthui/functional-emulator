@@ -10,12 +10,17 @@ const GBA: React.FC<Props> = ({}) => {
   useEffect(() => {
     const script = document.createElement("script");
     script.innerHTML = `
+    EJS_startOnLoaded = true
     EJS_player = '#game'
     EJS_core = 'gba'
     EJS_biosUrl = '/static/bios/gba_bios.bin'
     EJS_gameUrl = '/static/rom/gba/${slug}.zip'
     EJS_pathtodata = 'https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/'`;
     document.head.appendChild(script);
+
+    window.onpopstate = () => {
+      window.location.reload();
+    };
   }, []);
 
   const router = useRouter();

@@ -44,8 +44,8 @@ const GBA: React.FC<Props> = ({ games }) => {
         </div>
       </Parallax>
       <div className={styles.gamesContainer}>
-        {games.map((game) => (
-          <GridItem>
+        {games.map((game, idx) => (
+          <GridItem key={idx}>
             <Link href={`/gba/${game}`}>
               <img
                 alt={game}
