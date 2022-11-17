@@ -1,8 +1,9 @@
-import styles from "/styles/jss/nextjs-material-kit/pages/emulator.module.scss";
-import Script from "next/script";
-import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Script from "next/script";
+import React, { useEffect } from "react";
 import Header from "../../components/Header/Header";
+import HeaderLinks from "../../components/Header/HeaderLinks.js";
+import styles from "/styles/jss/nextjs-material-kit/pages/emulator.module.scss";
 
 interface Props {}
 
@@ -31,7 +32,7 @@ const GBA: React.FC<Props> = ({}) => {
         color="dark"
         //   routes={dashboardRoutes}
         brand="Function Emulator"
-        //   rightLinks={<HeaderLinks />}
+        rightLinks={<HeaderLinks />}
         changeColorOnScroll={{
           height: 400,
           color: "white",

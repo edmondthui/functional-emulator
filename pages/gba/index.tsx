@@ -7,7 +7,8 @@ import GridItem from "../../components/Grid/GridItem.js";
 import Header from "../../components/Header/Header.js";
 import Parallax from "../../components/Parallax/Parallax.js";
 import styles from "../../styles/jss/nextjs-material-kit/pages/gbaLanding.module.scss";
-// import Button from "../../components/CustomButtons/Button.js";
+import HeaderLinks from "../../components/Header/HeaderLinks.js";
+import GbaCarousel from "../../pages-sections/Gba-Sections/GbaCarousel.js";
 
 interface Props {
   games: ReadonlyArray<string>;
@@ -18,9 +19,9 @@ const GBA: React.FC<Props> = ({ games }) => {
     <div>
       <Header
         color="transparent"
-        //   routes={dashboardRoutes}
+        // routes={dashboardRoutes}
         brand="Function Emulator"
-        //   rightLinks={<HeaderLinks />}
+        rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
           height: 400,
@@ -45,18 +46,24 @@ const GBA: React.FC<Props> = ({ games }) => {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={styles.gamesContainer}>
-        {games.map((game, idx) => (
-          <GridItem key={idx}>
-            <Link href={`/gba/${game}`}>
-              <img
-                alt={game}
-                src={`/img/gba/${game}.jpg`}
-                className={styles.gameImage}
-              />
-            </Link>
-          </GridItem>
-        ))}
+      <div className={styles.main}>
+        <div className={styles.gameTitle}>
+          <h2 className={styles.titleText}>Gameboy Advance Games</h2>
+        </div>
+        <GbaCarousel />
+        <div className={styles.gamesContainer}>
+          {games.map((game, idx) => (
+            <GridItem key={idx}>
+              <Link href={`/gba/${game}`}>
+                <img
+                  alt={game}
+                  src={`/img/gba/${game}.jpg`}
+                  className={styles.gameImage}
+                />
+              </Link>
+            </GridItem>
+          ))}
+        </div>
       </div>
     </div>
   );
