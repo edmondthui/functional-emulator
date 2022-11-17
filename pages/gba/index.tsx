@@ -31,12 +31,14 @@ const GBA: React.FC<Props> = ({ games }) => {
         <div className={styles.container}>
           <GridContainer>
             <GridItem>
-              <h1 className={styles.title}>Your Story Starts With Us.</h1>
+              <h1 className={styles.title}>Gameboy Advance Emulator</h1>
               <h4>
-                Every landing page needs a small description after the big bold
-                title, that{"'"}s why we added this text here. Add here all the
-                information that can make you or your product create the first
-                impression.
+                The successor of the all time classic that shortly became a hit
+                just like it's "father". The fact that Gameboy Advance plays the
+                older Gameboy titles means you get to use the older games. There
+                is also another version of the Advance called SP. Functional
+                Emulator provides a fully functional Gameboy Advance emulator
+                right in your browser!
               </h4>
               <br />
             </GridItem>
@@ -65,8 +67,6 @@ export async function getStaticProps() {
   const files = fs.readdirSync(path.join(directoryPath));
 
   const games = files.map((fileName) => fileName.replace(".zip", ""));
-
-  console.log(games);
 
   return {
     props: {
