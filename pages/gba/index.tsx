@@ -49,7 +49,7 @@ const GBA: React.FC<Props> = ({ games }) => {
             <Link href={`/gba/${game}`}>
               <img
                 alt={game}
-                src="/img/examples/studio-1.jpg"
+                src={`/img/gba/${game}.jpg`}
                 className={styles.gameImage}
               />
             </Link>
